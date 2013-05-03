@@ -1513,7 +1513,7 @@ struct TickDuration
     {
         version(Windows)
         {
-            if(QueryPerformanceFrequency(cast(long*)&ticksPerSec) == 0)
+            if(QueryPerformanceFrequency(cast(LARGE_INTEGER*)&ticksPerSec) == 0)
                 ticksPerSec = 0;
         }
         else version(OSX)
@@ -2120,7 +2120,7 @@ struct TickDuration
         {
             ulong ticks;
 
-            if(QueryPerformanceCounter(cast(long*)&ticks) == 0)
+            if(QueryPerformanceCounter(cast(LARGE_INTEGER*)&ticks) == 0)
                 // This probably cannot happen on Windows 95 or later
                 throw new TimeException("Failed in QueryPerformanceCounter().");
 
