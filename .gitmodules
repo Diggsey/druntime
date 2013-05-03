@@ -1,0 +1,3 @@
+[submodule "src/core/sys/windows"]
+	path = src/core/sys/windows
+	url = https://github.com/Diggsey/druntime-win32.git
